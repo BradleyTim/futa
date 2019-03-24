@@ -1,8 +1,15 @@
 {% extends "blog/base.html"%}
 
 {% block content %}
-	<h1>BLOG</h1>
-	{% for post in posts %}
-		<h3>{{post.id}} | {{ post.text }}</h3>
-	{% endfor %}
+	<h1 class="display-5">Top Predictions</h1>
+
+	{% if posts %}
+	<ul class="list-group">
+		{% for post in posts %}
+			<li class="list-group-item mb-2">{{post.id}} | {{ post.text }}</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		<div class="display-5">No Available Predictions...</div>
+	{% endif %}
 {% endblock %}
